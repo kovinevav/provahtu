@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Работа вахтой</title>
+    <link rel="stylesheet" href="/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css">
+    <style>
+        .top {
+            height: 250px;
+            background: #191919;
+        }
+
+        .center {
+            width: 960px;
+            margin: auto;
+        }
+
+        #loginer {
+            position: relative;
+            right: 0;
+
+        }
+
+        #wrapper {
+            margin-top: -90px;
+        }
+
+        figure {
+            width: 22em;
+            position: absolute;
+            right: 50%;
+            margin-right: -11em;
+          }
+        figure a{
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #686767;
+            padding-right: 2em;
+
+        }
+    </style>
+</head>
+
+<body>
+<div class="top">
+    <div th:insert="auth/loginer" id="loginer"></div>
+    <div class="center">
+        <div th:insert="topMenu"></div>
+        <div th:insert="search"></div>
+    </div>
+</div>
+
+
+<div id="wrapper">
+    <section>
+        <img src="/images/banner.jpg">
+        <div class="flex">
+            <div th:each="vacancy: ${vacancies}">
+                <a th:href="@{/vacancy/{id}(id=${vacancy.getId_vacancy})}">
+                    <div class="vacancy">
+                        <h3 th:text="${vacancy.name}"></h3>
+                        <div salary><h4 th:text="${vacancy.salary}" style="color: #191919"></h4></div>
+                        <p th:text="${vacancy.city}" style="color: #191919"></p>
+
+                        <!--<p th:text="${vacancy.description}"></p>-->
+
+                    </div>
+                </a>
+            </div>
+        </div>
+
+
+        <figure>
+            <a href="/vacancy/new">Добавить вакансию</a>
+            <a href="/resume/new">Добавить резюме</a>
+        </figure>
+
+    </section>
+</div>
+
+
+<footer>
+    <div id="footer">
+        <div id="twitter">
+
+        </div>
+        <div id="sitemap">
+
+
+        </div>
+        <div id="social">
+
+        </div>
+        <div id="footer-logo">
+
+        </div>
+    </div>
+</footer>
+</body>
+</html>

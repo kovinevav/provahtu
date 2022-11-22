@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Просмотр вакансии</title>
+    <style>
+        .top {
+            height: 150px;
+            background: #191919;
+        }
+        .center{
+            width: 960px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="top">
+    <div class="center">
+        <div th:insert="topMenu"></div>
+        <div th:insert="search"></div>
+    </div>
+</div>
+<div>
+<p th:text="${vacancy.name}">Специальность</p>
+
+
+</div>
+
+</body>
+</html>

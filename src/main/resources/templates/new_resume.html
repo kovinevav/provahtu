@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание резюме</title>
+    <link rel="stylesheet" href="/css/styles.css" type="text/css">
+    <style>
+        textarea {
+            width: 100%;
+        }
+
+        input[type="text"]{
+            width: 75%;
+            height: 1.5em;
+            background-color: #f5f1f1;
+        }
+        input[type="tel"]{
+            width: 75%;
+            height: 1.5em;
+            background-color: #f5f1f1;
+        }
+
+        select{
+            height: 2em;
+        }
+
+        table {
+            width: 100%;
+            padding-top: 5em;
+        }
+
+        tr {
+            height: 2.5em;
+        }
+
+        .top {
+            height: 150px;
+            background: #191919;
+        }
+
+        .center {
+            width: 960px;
+            margin: auto;
+        }
+
+        #leftcol {
+            width: 30%;
+        }
+        img{
+            width: 115px;
+            margin-bottom: 0em;
+        }
+
+    </style>
+</head>
+<body>
+<div class="top">
+    <div th:insert="auth/loginer" id="loginer"></div>
+    <div class="center">
+        <div th:insert="topMenu"></div>
+    </div>
+</div>
+<div id="wrapper">
+    <h3>Создание резюме</h3>
+
+    <form th:method="POST" th:action="@{/resume}" enctype="multipart/form-data" th:object="${resume}">
+        <table>
+            <tr>
+                <td id="leftcol">
+                    <label for upload>Фотография</label>
+                </td>
+                <td>
+                    <img src="/images/ava-resume.png">
+                    <br>
+                    <input type="file" accept=".jpg" value="Загрузить изображение (.jpg)" name="file">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Фамилия</label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{lastname}" id="lastname">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Имя</label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{name}" id="name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Отчество</label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{patronymic}" id="patronymic" value="Необязательно">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Дата рождения</label>
+                </td>
+                <td>
+                    <input type="date" id="date" name="date">
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Пол</label>
+                </td>
+                <td>
+                    <select name="gender" id="gender">
+                        <option value="Мужской">Мужской</option>
+                        <option value="Женский">Женский</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="city">Город проживания:</label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{city}" id="city">
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="phone">Телефон:</label>
+                </td>
+                <td>
+                    <input type="tel" th:field="*{phone}" id="phone">
+                    <br> <a href="http://provahtu.ru">подтвердить</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="email">E-mail:</label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{email}" id="email">
+                </td>
+            </tr>
+
+
+            <br>
+            <tr>
+                <td>
+                    <H3>Желаемая должность</H3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Должность</label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{post}" id="vacancy">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Зарплата</label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{salary}">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Опыт работы:</label>
+                </td>
+                <td>
+                    <select name="experience">
+                        <option value="0"> Без опыта</option>
+                        <option value="3"> От 1 до 3 лет</option>
+                        <option value="6"> От 3 до 6 лет</option>
+                        <option value="100"> Более 6 лет</option>
+                    </select>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    <H3>Образование</H3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Уровень бразование</label>
+                </td>
+                <td>
+                    <select name="education">
+                        <option value="Среднее"> Среднее</option>
+                        <option value="Среднее специальное"> Среднее специальное</option>
+                        <option value="Неоконченное высшее"> Неоконченное высшее</option>
+                        <option value="Высшее">Высшее</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="submit" value="Отправить">
+                </td>
+            </tr>
+
+
+        </table>
+    </form>
+</div>
+<footer div="footer">
+    <div id="footer">
+        <div id="twitter">
+
+        </div>
+        <div id="sitemap">
+
+
+        </div>
+        <div id="social">
+
+        </div>
+        <div id="footer-logo">
+
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
