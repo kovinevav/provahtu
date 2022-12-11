@@ -18,6 +18,10 @@ public class Vacancy {
     String city;
     @Column(name = "experience")
     String experience;
+
+    @Column(name = "shortDescription")
+    String shortDescription;
+
     @Column(name = "description")
     String description;
     @Column(name = "salary")
@@ -75,6 +79,14 @@ public class Vacancy {
         this.experience = experience;
     }
 
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
+    }
+
     @Override
     public String toString() {
         return "Vacancy{" +
@@ -82,6 +94,7 @@ public class Vacancy {
                 ", name='" + name + '\'' +
                 ", city='" + city + '\'' +
                 ", experience='" + experience + '\'' +
+                ", shortDescription='" + shortDescription + '\'' +
                 ", description='" + description + '\'' +
                 ", salary='" + salary + '\'' +
                 '}';

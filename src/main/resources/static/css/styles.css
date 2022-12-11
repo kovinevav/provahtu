@@ -3,6 +3,7 @@ body {
     background-color: #ffffff;
     border-top: 5px solid #7e7e7e;
     margin: 0;
+    text-decoration: none;
 }
 p {
     margin: -12px 0 -10px;
@@ -176,6 +177,8 @@ figure h2 {
     height: 10em;
     padding: 8px 12px;
     border: 1px solid #e7e7e7;
+    text-decoration: none;
+    color: #191919;
 }
 
 .vacancy:hover {
