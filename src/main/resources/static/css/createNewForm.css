@@ -1,0 +1,45 @@
+textarea {
+    width: 100%;
+}
+
+input[type="text"]{
+    width: 75%;
+    height: 1.5em;
+    background-color: #f5f1f1;
+}
+input[type="tel"]{
+    width: 75%;
+    height: 1.5em;
+    background-color: #f5f1f1;
+}
+
+select{
+    height: 2em;
+}
+
+table {
+    width: 100%;
+    padding-top: 5em;
+}
+
+tr {
+    height: 2.5em;
+}
+
+.top {
+    height: 150px;
+    background: #191919;
+}
+
+.center {
+    width: 960px;
+    margin: auto;
+}
+
+#leftcol {
+    width: 30%;
+}
+img{
+    width: 115px;
+    margin-bottom: 0em;
+}

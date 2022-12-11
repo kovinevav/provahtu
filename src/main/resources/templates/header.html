@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        nav a {
+            text-decoration: none;
+            color: #191919 !important;
+        }
+
+        nav ul {
+            margin: auto;
+
+        }
+
+        nav li {
+            list-style-position: inside;
+            font: 20px 'Oswald', sans-serif;
+            padding: 10px;
+        }
+
+        nav li:hover {
+            background: #000000;
+        }
+
+        .top-menu li {
+            display: inline-block;
+            padding: 10px 28px;
+            margin: auto;
+        }
+
+        .top-menu li.active {
+            background: #29c5e6;
+            color: #fff;
+        }
+
+        form[name="search"] {
+            float: right;
+        }
+
+        button {
+            color: #fff;
+            background-color: #29c5e6;
+            border: none;
+            height: 32px;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .logo {
+            width: 15px;
+            display: inline-block;
+            float: left;
+        }
+        .search{
+            max-width: 962px;
+            margin: 10px;
+            margin-top: 10px;
+            border: #000000;
+        }
+        nav a {
+            text-decoration: none;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            list-style-position: inside;
+            font: 14px 'Oswald', sans-serif;
+            padding: 10px;
+        }
+
+        nav li:hover {
+            background: #efe9e9;
+        }
+
+        .top-menu li {
+            display: inline-block;
+            padding: 10px 30px;
+            margin: 0;
+        }
+
+        .top-menu li.active {
+            background: #29c5e6;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="logo">
+    <a href="http://localhost:8080/index"> <img src="static/images/logo.png" width="100"></a>
+</div>
+
+
+<header th:fragment="header" >
+
+    <nav>
+        <ul class="top-menu" >
+            <li><a href="vacancy/vacancies">Вакансии</a></li>
+            <li><a href="/resumes">Резюме</a></li>
+            <li><a href="/company">Компании</a></li>
+            <li><a href="/services/">Обучение</a></li>
+            <li><a href="/partners/">Новости</a></li>
+            <li><a href="/customers/">Контакты</a></li>
+        </ul>
+    </nav>
+
+
+
+
+
+
+</header>
+</body>
+</html>

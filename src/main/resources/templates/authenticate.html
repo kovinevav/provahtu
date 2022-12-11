@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <title>Resume</title>
+</head>
+<body>
+<th:form action="/addUser" method="post">
+    <table>
+        <tr>
+            <td>
+                <th:label for="phone">Телефон:</th:label>
+            </td>
+            <td><input type="text" id="phone" name="phone" value="+79"></td>
+        </tr>
+        <tr>
+            <td>
+                <th:label for="password">Пароль:</th:label>
+            </td>
+            <td>
+                <input type="password" id="password" name="password">
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Зарегестрироваться"></td>
+        </tr>
+    </table>
+</th:form>
+</body>
+</html>

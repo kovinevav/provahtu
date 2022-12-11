@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание вакансии</title>
+    <link rel="stylesheet" href="/css/styles.css" type="text/css">
+    <style>
+        textarea {
+            width: 75%;
+            background-color: #f5f1f1;
+
+        }
+
+        input[type="text"] {
+            width: 75%;
+            height: 1.5em;
+            background-color: #f5f1f1;
+        }
+
+        input[type="tel"] {
+            width: 75%;
+            height: 1.5em;
+            background-color: #f5f1f1;
+        }
+
+        select {
+            height: 2em;
+        }
+
+        table {
+            width: 100%;
+            padding-top: 5em;
+        }
+
+        tr {
+            height: 2.5em;
+        }
+
+        .top {
+            height: 150px;
+            background: #191919;
+        }
+
+        .center {
+            width: 960px;
+            margin: auto;
+        }
+
+        #leftcol {
+            width: 30%;
+        }
+
+        img {
+            width: 115px;
+            margin-bottom: 0em;
+        }
+
+    </style>
+</head>
+<body>
+<div class="top">
+    <div th:insert="auth/loginer" id="loginer"></div>
+    <div class="center">
+        <div th:insert="topMenu"></div>
+    </div>
+</div>
+<div id="wrapper">
+    <h3>Создание вакансии</h3>
+
+    <form th:method="POST" th:action="@{/vacancy}" th:object="${vacancy}">
+        <table>
+            <tr>
+                <td id="leftcol">
+                    <label>Название вакансии</label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{name}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Город</label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{city}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Опыт работы</label>
+                </td>
+                <td>
+                    <select name="experience">
+                        <option value="0"> Без опыта</option>
+                        <option value="3"> От 1 до 3 лет</option>
+                        <option value="6"> От 3 до 6 лет</option>
+                        <option value="100"> Более 6 лет</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Расскажите про вакансию</label>
+                </td>
+                <td>
+                    <textarea name="description" rows="20">
+
+Обязанности:
+
+
+Tребования:
+
+
+Условия:
+
+
+
+                    --</textarea>
+                </td>
+
+            <tr>
+                <td>
+                    <label>Зарплата</label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{salary}">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="submit" value="Добавить вакансию">
+                </td>
+            </tr>
+
+
+        </table>
+    </form>
+</div>
+<footer div="footer">
+    <div id="footer">
+        <div id="twitter">
+
+        </div>
+        <div id="sitemap">
+
+
+        </div>
+        <div id="social">
+
+        </div>
+        <div id="footer-logo">
+
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

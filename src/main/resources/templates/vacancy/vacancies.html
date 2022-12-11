@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>vacancies</title>
+    <link rel="stylesheet" href="/css/styles.css" type="text/css">
+    <style>
+        .top {
+            height: 150px;
+            background: #191919;
+        }
+
+        .center {
+            width: 960px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="top">
+    <div class="center">
+        <div th:insert="auth/loginer" id="loginer"></div>
+        <div th:insert="topMenu"></div>
+        <div th:insert="search"></div>
+    </div>
+</div>
+
+
+<div id="wrapper">
+    <section>
+        <figure>
+            <h2>ВАКАНСИИ</h2>
+        </figure>
+        <div class="flex">
+            <div th:each="vacancy: ${listVacancies}">
+                <a th:href="@{/vacancy/{id}(id=${vacancy.getId_vacancy})}">
+                    <div class="vacancy">
+                        <p th:text="${vacancy.name}"></p>
+                        <p th:text="${vacancy.city}"></p>
+                        <p th:text="${vacancy.description}"></p>
+                        <p th:text="${vacancy.salary}"></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+</html>
