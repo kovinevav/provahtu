@@ -44,6 +44,7 @@
 <div id="log">
     <form name="f" method="post" action="/process_login">
         Вход в учётную запись
+        <input type="hidden" name="${_csrf.parameterName}" th:value="${_csrf.token}">
         <br><br>
         <input type="email" id="username" name="username" value="Email">
         <br><br>

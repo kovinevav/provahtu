@@ -1,6 +1,5 @@
 package ru.kovynev.provahtu.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -47,6 +46,12 @@ public class ResumeControllers {
             }
         }
         return "index";
+    }
+@GetMapping()
+    public String showAllVacancies(Model model){
+        model.addAttribute("listResume", resumeService.findAll());
+        System.out.println("resumecontroller");
+        return "resume/resumes";
     }
 
 }

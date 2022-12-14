@@ -60,12 +60,14 @@
             <div th:each="vacancy: ${vacancies}">
                 <a th:href="@{/vacancy/{id}(id=${vacancy.getId_vacancy})}">
                     <div class="vacancy">
-                        <h3 th:text="${vacancy.name}"></h3>
-                        <div salary><h4 th:text="${vacancy.salary}" style="color: #191919"></h4></div>
-                        <p th:text="${vacancy.city}" style="color: #191919"></p>
+                        <H3 th:text="${vacancy.name}"></h3>
+                        <br>
+                        <textarea th:text="${vacancy.shortDescription}"></textarea>
 
-                        <!--<p th:text="${vacancy.description}"></p>-->
-
+                        <br>
+                        <i>Зарплата: </i>
+                        <i th:text="${vacancy.salary}"></i>
+                        <i>  рублей</i>
                     </div>
                 </a>
             </div>

@@ -16,12 +16,19 @@ public class Vacancy {
     String name;
     @Column(name = "city")
     String city;
+    @Column(name = "experience")
+    String experience;
+
+    @Column(name = "shortDescription")
+    String shortDescription;
+
     @Column(name = "description")
     String description;
     @Column(name = "salary")
     String salary;
 
     public Vacancy() {
+
     }
 
     public Long getId_vacancy() {
@@ -64,12 +71,30 @@ public class Vacancy {
         this.salary = salary;
     }
 
+    public String getExperience() {
+        return experience;
+    }
+
+    public void setExperience(String experience) {
+        this.experience = experience;
+    }
+
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
+    }
+
     @Override
     public String toString() {
         return "Vacancy{" +
-                "Id_vacancy=" + id_vacancy +
+                "id_vacancy=" + id_vacancy +
                 ", name='" + name + '\'' +
                 ", city='" + city + '\'' +
+                ", experience='" + experience + '\'' +
+                ", shortDescription='" + shortDescription + '\'' +
                 ", description='" + description + '\'' +
                 ", salary='" + salary + '\'' +
                 '}';

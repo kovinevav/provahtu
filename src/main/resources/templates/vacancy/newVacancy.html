@@ -1,82 +1,159 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
-
     <meta charset="UTF-8">
-    <title>Новая вакансия</title>
+    <title>Создание вакансии</title>
+    <link rel="stylesheet" href="/css/styles.css" type="text/css">
     <style>
-        #wrapper {
-            max-width: 960px;
-            margin: auto;
-        }
-
-        .mytext {
-            width: 50em;
-            height: 2em;
-            margin-bottom: 1em;
-        }
-
-        label {
-            margin-top: 5px;
-        }
-
         textarea {
-            height: 30em;
-            width: 50em;
+            width: 75%;
+            background-color: #f5f1f1;
+
         }
-        section {
-            margin-left: 0px;
-            padding-bottom: 50px;
-            padding-top: 50px;
+
+        input[type="text"] {
+            width: 75%;
+            height: 1.5em;
+            background-color: #f5f1f1;
         }
+
+        input[type="tel"] {
+            width: 75%;
+            height: 1.5em;
+            background-color: #f5f1f1;
+        }
+
+        select {
+            height: 2em;
+        }
+
+        table {
+            width: 100%;
+            padding-top: 5em;
+        }
+
+        tr {
+            height: 2.5em;
+        }
+
         .top {
             height: 150px;
             background: #191919;
         }
-        .center{
+
+        .center {
             width: 960px;
             margin: auto;
         }
+
+        #leftcol {
+            width: 30%;
+        }
+
+        img {
+            width: 115px;
+            margin-bottom: 0em;
+        }
+
     </style>
 </head>
 <body>
 <div class="top">
+    <div th:insert="auth/loginer" id="loginer"></div>
     <div class="center">
         <div th:insert="topMenu"></div>
-        <div th:insert="search"></div>
     </div>
 </div>
 <div id="wrapper">
+    <h3>Создание вакансии</h3>
 
-    <section>
-        <div th:name="forma">
-            <form th:action="@{/provahtu/vacancy}" th:method="POST" th:object="${vacancy}">
+    <form th:method="POST" th:action="@{/vacancy}" th:object="${vacancy}">
+        <table>
+            <tr>
+                <td id="leftcol">
+                    <label>Название вакансии</label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{name}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Город</label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{city}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Опыт работы</label>
+                </td>
+                <td>
+                    <select name="experience">
+                        <option value="0"> Без опыта</option>
+                        <option value="3"> От 1 до 3 лет</option>
+                        <option value="6"> От 3 до 6 лет</option>
+                        <option value="100"> Более 6 лет</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Расскажите про вакансию</label>
+                </td>
+                <td>
+                    <textarea name="description" rows="20">
 
-                <label>Название вакансии</label>
-                <br>
-                <input type="text" class="mytext" th:field="*{user.name}" id="matext" th:minlength="4">
-                <br>
-                <label for="city">Город</label>
-                <br>
-                <input type="text" class="mytext" th:field="*{city}" id="city">
-                <br>
+Обязанности:
 
-                <label>Описание</label>
-                <br>
-                <textarea th:field="*{description}"></textarea>
-                <br>
-                <label>Зарплата</label>
-                <br>
-                //<input type="text" th:field="*{salary}" hidden="От">
-                <input type="text" salary_min="*{salary}" hidden="От">
-                <input type="text" salary_max="*{salary}" hidden="до">
-                "*{salary}" = salary_min + salary_max
 
-                <br>
-                <td><input type="submit" value="Сохранить вакансию" style="margin-top: 1em"></td>
-            </form>
-        </div>
-    </section>
+Tребования:
+
+
+Условия:
+
+
+
+                    --</textarea>
+                </td>
+
+            <tr>
+                <td>
+                    <label>Зарплата</label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{salary}">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="submit" value="Добавить вакансию">
+                </td>
+            </tr>
+
+
+        </table>
+    </form>
 </div>
+<footer div="footer">
+    <div id="footer">
+        <div id="twitter">
+
+        </div>
+        <div id="sitemap">
+
+
+        </div>
+        <div id="social">
+
+        </div>
+        <div id="footer-logo">
+
+        </div>
+    </div>
+</footer>
+
 </body>
 </html>

@@ -3,7 +3,9 @@ body {
     background-color: #ffffff;
     border-top: 5px solid #7e7e7e;
     margin: 0;
+    text-decoration: none;
 }
+
 p {
     margin: -12px 0 -10px;
 }
@@ -21,6 +23,7 @@ header {
 nav a {
     text-decoration: none;
 }
+
 nav li {
     list-style-position: inside;
     font: 14px 'Oswald', sans-serif;
@@ -30,7 +33,6 @@ nav li {
 nav li:hover {
     background: #efe9e9;
 }
-
 
 
 #heading {
@@ -115,7 +117,8 @@ figure {
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
 }
-figure a{
+
+figure a {
     color: #7e7e7e;
 }
 
@@ -173,15 +176,27 @@ figure h2 {
 }
 
 .vacancy {
-    width: 15em;
-    height: 8em;
+    height: 10em;
     padding: 8px 12px;
     border: 1px solid #e7e7e7;
+    text-decoration: none;
+    color: #191919;
+    border-width: 1px 1px 1px 5px;
 }
+
+.vacancy textarea {
+    width: 100%;
+    height: 5em;
+    border: none;
+    resize: none;
+    background-color: transparent;
+}
+
 
 .vacancy:hover {
     background: #efe9e9;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+
 }
 
 .vacancy p {
@@ -230,7 +245,7 @@ footer h3 {
 }
 
 #twitter time a {
-    color:#7e7e7e;
+    color: #7e7e7e;
 }
 
 footer p {
