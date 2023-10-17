@@ -30,7 +30,7 @@
     <link href="/css/singin.css" rel="stylesheet">
 </head>
 <body class="text-center">
-<form   name="f" class="form-signin" method="post" th:action="@{/auth/process_login}"  th:object="loginDto" >
+<form   name="f" class="form-signin" method="post" th:action="@{/auth/login}"  th:object="${loginDto}" >
     <!--<img class="mb-4" src="/img/brand/bootstrap-solid.svg" alt="логотип bootstrap" width="72" height="72">-->
     <h1 class="h3 mb-3 font-weight-normal">Пожалуйста войдите</h1>
 

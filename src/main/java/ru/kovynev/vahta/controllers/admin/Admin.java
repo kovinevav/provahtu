@@ -16,15 +16,16 @@ public class Admin {
     VacanciesRepository vacanciesRepository;
 
 
-/*    @GetMapping("/listofcompanies")
+    @GetMapping("/listofcompanies")
     public String showListOfCompanies(Model model){
         Iterable<Company> companies = companyRepository.findAll();
         model.addAttribute("companies", companies);
         return "/adminpanels/listofcompanies";
-    }*/
+    }
 
     @GetMapping("/admin")
     public String openAdminsPage(Model model){
+        System.out.println("Came as Admin");
         Iterable<Company> companies = companyRepository.findAll();
         model.addAttribute("companies",companies);
         return "admin/admin_panel";

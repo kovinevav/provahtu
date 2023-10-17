@@ -42,13 +42,13 @@ public class AuthController {
     }
 
 
-    @PostMapping(value = "/process_login")
+    @PostMapping(value = "/login")
     public String login(@ModelAttribute("loginDto") LoginDto loginDto) {
         System.out.println("POST_LOGIN");
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginDto.getUsername(), loginDto.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        return "redirect: /personalpage";
+        return "redirect:";
 
     }
 

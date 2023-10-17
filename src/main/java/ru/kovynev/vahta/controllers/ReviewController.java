@@ -36,7 +36,7 @@ public class ReviewController {
         Company company = companyRepository.findById(id).orElseThrow();
         review.setCompany(company);
         reviewRepository.save(review);
-        return "redirect:company/" + id;
+        return "redirect:companies/" + id;
 
     }
 }

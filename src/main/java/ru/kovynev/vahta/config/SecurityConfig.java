@@ -21,6 +21,7 @@ import ru.kovynev.vahta.security.CustomUserDetailService;
 
 @EnableWebSecurity
 @Configuration
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
     @Autowired
     public SecurityConfig(CustomUserDetailService customUserDetailService) {
@@ -32,16 +33,16 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
-                        .authorizeRequests((requests) -> requests
-                        .requestMatchers("/", "/companies", "/vacancies", "/writeme", "/personalpage").permitAll()
-                        .requestMatchers("/auth/**").permitAll()
+                        .authorizeRequests()
                         .requestMatchers("/admin", "/admin/**").hasRole("ADMIN")
-                        .anyRequest().authenticated()
-                );
+                        .requestMatchers("/", "/companies", "/vacancies", "/writeme", "/personalpage").permitAll()
+                        .requestMatchers("/auth/login").permitAll()
+                        .anyRequest().authenticated();
+
 
         http
                 .formLogin(form -> form
-                        .loginPage("/login")
+                        .loginPage("/auth/login")
                         .permitAll()
                 );
         http
