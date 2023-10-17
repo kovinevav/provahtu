@@ -1,0 +1,31 @@
+<div th:fragment="vacancies">
+    <H2>Вакансии</H2>
+
+    <div class="container" th:each="vacancy: ${vacancies}">
+
+        <div class="row">
+           <!--   <div class="col-md-4">
+                  <p th:text="${vacancy.company.name}">Name of company</p>
+              </div>-->
+
+            <div class="col-md-4">
+                <p th:text="${vacancy.name}">Name of vacancy</p>
+            </div>
+
+            <div class="col-md-4">
+                <a th:href="'/admin/vacancies/' + ${vacancy.id} + '/edit'">Редактировать</a>
+            </div>
+
+            <div class="col-md-4">
+                <form th:method="delete" th:action="'/admin/vacancies/' + ${vacancy.id}">
+                    <input type="submit" value="Удалить">
+                </form>
+
+            </div>
+        </div>
+        <hr>
+
+
+    </div>
+    <a th:href="@{/admin/vacancies/new}">Создать новую вакансию</a>
+</div>

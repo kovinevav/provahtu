@@ -1,0 +1,29 @@
+<div th:fragment="review" xmlns="http://www.w3.org/1999/html">
+
+    <div class="container" >
+        <h2>Оставить отзыв</h2>
+
+
+
+        <form method="POST" action="/review">
+            <div class=" col-4">
+                <label for="name" class="form-label">Ваше имя<span class="text-muted"></span></label>
+                <input type="text" class="form-control" id="name" name="name">
+                <input type="hidden" value="${company.id}" name="id" id="id">
+                <br>
+            </div>
+
+            <div class="col-6">
+                <label for="review" class="form-label">Напишите ваш отзыв<span class="text-muted"></span></label>
+                <textarea  class="form-control" id="review"  name="review" rows="5" ></textarea>
+                <br>
+            </div>
+
+            <div class="col-6">
+                <input type="submit" class="form-control" value="Опубликовать">
+            </div>
+
+
+        </form>
+    </div>
+</div>

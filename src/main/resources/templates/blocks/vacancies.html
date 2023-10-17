@@ -1,0 +1,31 @@
+<div th:fragment="vacancies">
+
+
+    <div class="row mb-2"   >
+        <div class="container">
+            <H2>Вакансии</H2>
+        </div>
+
+        <div class="row mb-2" >
+
+
+            <div class="col-md-4"   th:each="vacancy : ${vacancies}"   >
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <!-- <strong class="d-inline-block mb-2 text-primary" th:text="${vacancy.name}">Название компании</strong>-->
+                        <h3 th:text="${vacancy.name}"></h3>
+                        <br>
+                        <br>
+                        <!-- <div class="mb-1 text-muted">12 ноября</div>-->
+                        <p class="card-text mb-auto" th:text="${vacancy.description}"></p>
+                        <a th:href=" 'vacancies/' + ${vacancy.id}" class="stretched-link">Узнать больше</a>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

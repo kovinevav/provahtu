@@ -1,0 +1,32 @@
+
+<div th:fragment="listofcompanies">
+    <H2>Компании</H2>
+
+<div class="container" th:each="company : ${companies}">
+
+        <div class="row">
+            <div class="col-md-3">
+                <p th:text="${company.name}">Name of company</p>
+            </div>
+
+            <div class="col-md-3">
+                <a th:href="'/admin/companies/' + ${company.id} + '/edit'">Редактировать</a>
+            </div>
+            <div class="col-md-3">
+                <a th:href="'/admin/vacancies/new/' + ${company.id}">Создать вакансию</a>
+            </div>
+
+            <div class="col-md-3">
+                <form th:method="delete"  th:action="'admin/companies/' + ${company.id}">
+                    <input type="submit" value="Удалить">
+                </form>
+
+            </div>
+        </div>
+        <hr>
+
+
+</div>
+    <a th:href="@{admin/companies/new}">Создать новую компанию</a>
+</div>
+

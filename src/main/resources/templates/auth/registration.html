@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://bootstrap5.ru/css/docs.css">
+
+
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="/css/singin.css" rel="stylesheet">
+</head>
+<body class="text-center">
+<form name="f" class="form-signin" method="POST"  th:action="@{/register}" th:object="${registerDto}">
+    <!--<img class="mb-4" src="/img/brand/bootstrap-solid.svg" alt="логотип bootstrap" width="72" height="72">-->
+    <h1 class="h3 mb-3 font-weight-normal">Придумайте логин и пароль</h1>
+
+    <label for="userName" class="sr-only">Login</label>
+    <input type="text"  th:field="*{username}"  id="userName" class="form-control" placeholder="Login" required="" autofocus="">
+
+
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" th:field="*{password}" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+
+
+
+    </div>
+    <div class="container">
+        <input type="submit" value="Зарегиться" class="btn btn-success">
+    </div>
+
+    <p class="mt-5 mb-3 text-muted">&copy; 2023</p>
+    <div th:if="${param.error}" style="color: red">
+        Что-то пошло не так
+    </div>
+
+</form>
+
+<!-- Yandex.Metrika counter -->
+</body>
+</html>
