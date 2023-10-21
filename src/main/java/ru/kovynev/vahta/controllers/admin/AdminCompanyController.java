@@ -25,7 +25,7 @@ public class AdminCompanyController {
     @GetMapping("/new")
     public String addCompany(Model model) {
         model.addAttribute("company", new Company());
-        return "add_company";
+        return "admin/companies/add_company";
     }
 
     @PostMapping("")

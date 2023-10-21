@@ -1,0 +1,33 @@
+<div th:fragment="users">
+    <H2>Пользователи</H2>
+
+    <div class="container" th:each="user: ${users}">
+
+        <div class="row">
+
+
+            <div class="col-md-3">
+                <p th:text="${user.username}">Name of user</p>
+            </div>
+
+            <div class="col-md-3">
+                <p th:text="${user.roles.get(0).name}">Name of user</p>
+            </div>
+
+            <div class="col-md-3">
+                <a th:href="'/admin/vacancies/' + ${user.id} + '/edit'">Редактировать</a>
+            </div>
+
+            <div class="col-md-3">
+                <form th:method="delete" th:action="'/admin/vacancies/' + ${user.id}">
+                    <input type="submit" value="Удалить">
+                </form>
+
+            </div>
+        </div>
+        <hr>
+
+
+    </div>
+    <a th:href="@{/admin/vacancies/new}">Создать нового пользователя</a>
+</div>

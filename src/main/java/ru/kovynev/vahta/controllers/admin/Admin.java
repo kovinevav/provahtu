@@ -30,4 +30,8 @@ public class Admin {
         model.addAttribute("companies",companies);
         return "admin/admin_panel";
     }
+    @GetMapping("/administrator")
+    public String goToAdmin(){
+        return "redirect:admin";
+    }
 }

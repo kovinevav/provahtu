@@ -32,7 +32,8 @@
             </div>
             <div class="container">
                 <label for="text">Описание: </label>
-                <input type="text" th:field="*{text}" id="text" class="form-control"><br>
+                <textarea th:field="*{text}" id="text" class="form-control" rows="15"></textarea>
+                <br>
             </div>
             <div class="container">
                 <input type="submit" value="Добавить" class="btn btn-success">
