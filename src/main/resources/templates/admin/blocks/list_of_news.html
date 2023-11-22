@@ -1,0 +1,39 @@
+<div th:fragment="news">
+    <H2>Новости</H2>
+
+    <div class="container" th:each="news: ${news}">
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <p th:text="${news.title}">Title</p>
+            </div>
+            <div class="col-md-4">
+                <a th:href="'/admin/news/' + ${news.id} + '/edit'">Редактировать</a>
+            </div>
+            <div class="col-md-4">
+                <form th:method="delete" th:action="'/admin/news/' + ${news.id}">
+                    <input type="submit" value="Удалить">
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <p th:text="${news.text}">Title</p>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        <hr>
+
+
+    </div>
+    <a th:href="@{/admin/news/new}">Создать новость</a>
+</div>

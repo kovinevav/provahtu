@@ -29,7 +29,7 @@ public class AdminCompanyController {
     }
 
     @PostMapping("")
-    public String addcompany(@ModelAttribute("company") Company company) {
+    public String addCompany(@ModelAttribute("company") Company company) {
         companyRepository.save(company);
         return "redirect:/administrator";
     }
