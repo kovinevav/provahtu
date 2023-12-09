@@ -45,25 +45,22 @@
 
             <div th:insert="admin/blocks/dashboard ::dashboard"></div>
 
-            <form th:method="PATCH" th:object="${review}" th:action="@{/review/{id}(id=${review.getId})}">
-                <!--  <div class="container">
-                    <label for="company">Компания: </label>
-                    <input type="text" th:field="*{review.company.name}" id="company" class="form-control"><br>
-                  </div>-->
-                <div class="container">
-                    <label for="review">Автор: </label>
-                    <input type="text" th:field="*{name}" id="review" class="form-control"><br>
-                </div>
+
 
                 <div class="container">
-                    <label for="text">Отзыв: </label>
-                    <textarea th:field="*{text}" id="text" class="form-control"></textarea><br>
+                    <label for="name">Имя: </label>
+                    <input type="text" th:field="${letter.name}" id="name" class="form-control"><br>
                 </div>
 
+            <div class="container">
+                <label for="date">Дата: </label>
+                <input type="text" th:field="${letter.date}" id="date" class="form-control"><br>
+            </div>
+
                 <div class="container">
-                    <input type="submit" value="Сохранить" class="btn btn-success">
+                    <label for="text">Текст: </label>
+                    <textarea rows="15" th:field="${letter.text}" id="text" class="form-control"></textarea>
                 </div>
-            </form>
 
         </main>
     </div>

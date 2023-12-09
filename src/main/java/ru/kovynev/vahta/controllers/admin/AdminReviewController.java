@@ -21,7 +21,7 @@ public class AdminReviewController {
     @GetMapping("/admin/reviews/{id}/edit")
     public  String editReview(@PathVariable("id") Long id, Model model){
         model.addAttribute("review",reviewRepository.findById(id).orElseThrow());
-        return "/admin/reviews/edit_review";
+        return "admin/reviews/edit_review";
     }
 
 

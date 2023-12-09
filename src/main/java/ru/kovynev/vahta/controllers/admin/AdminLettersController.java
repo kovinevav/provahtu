@@ -6,54 +6,45 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import ru.kovynev.vahta.entity.Letter;
 import ru.kovynev.vahta.entity.News;
+import ru.kovynev.vahta.rep.LetterRepository;
 import ru.kovynev.vahta.rep.NewsRepository;
 
 @Controller
 public class AdminLettersController {
     Logger logger = LogManager.getLogger();
     @Autowired
-    NewsRepository newsRepository;
+    LetterRepository letterRepository;
 
 
-    @GetMapping("admin/news")
-    public String showNews(Model model) {
-        Iterable<News> news = newsRepository.findAll();
-        model.addAttribute("news", news);
-        return "admin/news/all_news";
+    @GetMapping("admin/letters")
+    public String showLetters(Model model) {
+        Iterable<Letter> letters = letterRepository.findAll();
+        model.addAttribute("letters", letters);
+        return "admin/letters/all_letters";
     }
 
 
-    @GetMapping("admin/news/new/{id}")
-    public String newNews(Model model,
-                          @PathVariable("id") long id) {
-        News news = new News();
-        model.addAttribute("news", news);
-        return "admin/news/new_news";
+    @GetMapping("admin/letter/{id}")
+    public String readLetter(@PathVariable(value = "id") long id, Model model) {
+        Letter letter= letterRepository.findById(id).orElseThrow();
+        model.addAttribute("letter", letter);
+        return "admin/letters/letter";
     }
 
 
-
-    @DeleteMapping("admin/news/{id}")
+    @DeleteMapping("admin/letter/{id}")
     public String delete(@PathVariable(value = "id") long id) {
-        News news = newsRepository.findById(id).orElseThrow();
-        newsRepository.delete(news);
-        return "redirect:/admin/news";
+        Letter letter = letterRepository.findById(id).orElseThrow();
+        letterRepository.delete(letter);
+        return "redirect:/admin/letters";
     }
+/*
 
-    @PatchMapping("admin/news/{id}")
-    public String update(@PathVariable(value = "id") long id, @ModelAttribute("news") News news) {
-        news.setId(id);
-        newsRepository.save(news);
-        return "redirect:/admin/news";
-    }
 
-    @GetMapping("admin/news/{id}/edit")
-    public String editVacancy(@PathVariable(value = "id") long id, Model model) {
-        News news = newsRepository.findById(id).orElseThrow();
-        model.addAttribute("news", news);
-        return "admin/news/edit_news";
-    }
+
+
 
     @GetMapping("admin/news/new")
     public String createNewNews(Model model) {
@@ -66,6 +57,6 @@ public class AdminLettersController {
         //news.setDate(new Date());
         newsRepository.save(news);
         return "redirect:/admin/news";
-    }
+    }*/
 
 }

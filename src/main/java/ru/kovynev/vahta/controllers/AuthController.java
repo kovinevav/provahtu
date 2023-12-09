@@ -38,7 +38,7 @@ public class AuthController {
     public String loginPage(Model model) {
         System.out.println("GET_LOGIN");
         model.addAttribute("loginDto", new LoginDto());
-        return "/auth/login";
+        return "auth/login";
     }
 
 
@@ -56,7 +56,7 @@ public class AuthController {
     @PostMapping("/register")
     public String register(RegisterDto registerDto) {
         if (userRepository.existsByUsername(registerDto.getUsername())) {
-            return "/auth/login";
+            return "auth/login";
         }
         UserEntity user = new UserEntity();
         user.setUsername(registerDto.getUsername());
@@ -72,7 +72,7 @@ public class AuthController {
     @GetMapping("/register")
     public String showFormRegister(Model model){
         model.addAttribute("registerDto", new RegisterDto());
-        return "/auth/registration";
+        return "auth/registration";
     }
 
 

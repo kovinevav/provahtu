@@ -20,7 +20,7 @@ public class Admin {
     public String showListOfCompanies(Model model){
         Iterable<Company> companies = companyRepository.findAll();
         model.addAttribute("companies", companies);
-        return "/adminpanels/listofcompanies";
+        return "adminpanels/listofcompanies";
     }
 
     @GetMapping("/admin")
@@ -31,7 +31,11 @@ public class Admin {
         return "admin/admin_panel";
     }
     @GetMapping("/administrator")
-    public String goToAdmin(){
-        return "redirect:admin";
+    public String openAdministratorPage(Model model){
+        System.out.println("Came as Admin");
+        Iterable<Company> companies = companyRepository.findAll();
+        model.addAttribute("companies",companies);
+        return "admin/admin_panel";
     }
+
 }

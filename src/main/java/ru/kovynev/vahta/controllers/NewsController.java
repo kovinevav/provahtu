@@ -25,7 +25,7 @@ public class NewsController{
     public String showAll(Model model) {
         Iterable<News> companies = newsRepository.findAll();
         model.addAttribute("companies", companies);
-        return "/news/all_news";
+        return "news/all_news";
     }
     @GetMapping("/{id}")
     public String shownews(@PathVariable(value = "id") long id, Model model) {

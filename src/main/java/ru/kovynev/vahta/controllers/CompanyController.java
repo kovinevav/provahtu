@@ -16,6 +16,7 @@ import ru.kovynev.vahta.rep.CompanyRepository;
 import ru.kovynev.vahta.rep.ReviewRepository;
 
 import java.awt.print.Pageable;
+import java.util.List;
 
 
 @Controller
@@ -35,6 +36,13 @@ public class CompanyController {
         Iterable<Review> reviews = reviewRepository.findByCompany(company);
         model.addAttribute("company", company);
         model.addAttribute("reviews", reviews);
+        List<Review> reviewList = (List<Review>) reviews;
+        if(reviewList.isEmpty()){
+        Review review =new Review();
+        review.setText("Отзывы по данной компании отсутствуют. Ваш отзыв может стать первым.");
+        ((List<Review>) reviews).add(review);
+        }
+
         return "companies/company";
     }
 
@@ -43,6 +51,6 @@ public class CompanyController {
         logger.info("Show all companies");
         Iterable<Company> companies = companyRepository.findAll();
         model.addAttribute("companies", companies);
-        return "/companies/all_companies";
+        return "companies/all_companies";
     }
 }

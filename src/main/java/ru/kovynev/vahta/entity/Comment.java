@@ -13,7 +13,7 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column(length = 10000)
     private String text;
     private String author;
     private String title;

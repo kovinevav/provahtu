@@ -26,13 +26,13 @@ public class WriteMeController {
 model.addAttribute("letter", new Letter());
         System.out.println("Writer");
 
-        return "/writeme/writeme";
+        return "writeme/writeme";
     }
 
     @PostMapping()
     public String getterOfLetter(@ModelAttribute("letter") Letter letter) {
        letterRepository.save(letter);
 
-        return "/writeme/success";
+        return "writeme/success";
     }
 }

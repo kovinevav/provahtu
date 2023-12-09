@@ -15,6 +15,7 @@ public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(length = 10000)
     private String text;
     private String name;
     //private LocalDate date;

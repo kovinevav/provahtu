@@ -59,7 +59,12 @@
 
                 <div class="container">
                     <label for="text">Описание: </label>
-                    <textarea th:field="*{text}" id="text" class="form-control"></textarea><br>
+                    <textarea th:field="*{text}" rows="15" id="text" class="form-control"></textarea><br>
+                </div>
+
+                <div class="container mb-4">
+                    <label for="text">WEB: </label>
+                    <input type="text" th:field="*{web}" id="web" class="form-control"></input>
                 </div>
 
                 <div class="container">

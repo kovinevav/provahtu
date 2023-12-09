@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Columns;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +18,14 @@ public class Company {
     private Long id;
     @NotEmpty
     private String name;
+    @Column(length = 100)
     private String anons;
+    @Column(length = 10000)
     private String text;
+    private String web;
+
+
+
     @OneToMany
     private List<Contact> contacts = new ArrayList<>();
 
@@ -40,6 +47,7 @@ public class Company {
                 ", anons='" + anons + '\'' +
                 ", text='" + text + '\'' +
                 ", contacts=" + contacts +
+                ", WEB=" + web +
                 ", reviewList=" + reviewList +
                 '}';
     }

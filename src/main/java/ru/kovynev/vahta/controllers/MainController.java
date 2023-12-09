@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import ru.kovynev.vahta.entity.Company;
 import ru.kovynev.vahta.rep.CompanyRepository;
 
+import java.io.File;
+
 @Controller
 public class MainController {
 @Autowired
@@ -21,6 +23,8 @@ Logger logger = LogManager.getLogger("MainController");
         Iterable<Company> companies = companyRepository.findAll(Pageable.ofSize(18));
         model.addAttribute("companies", companies);
         logger.info("Start of program");
+
+
 
         return "index";
     }

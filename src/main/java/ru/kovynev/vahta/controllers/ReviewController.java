@@ -11,9 +11,6 @@ import ru.kovynev.vahta.entity.Review;
 import ru.kovynev.vahta.rep.CompanyRepository;
 import ru.kovynev.vahta.rep.ReviewRepository;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class ReviewController {
