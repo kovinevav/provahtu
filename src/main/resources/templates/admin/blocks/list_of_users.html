@@ -15,11 +15,11 @@
             </div>
 
             <div class="col-md-3">
-                <a th:href="'/admin/vacancies/' + ${user.id} + '/edit'">Редактировать</a>
+                <a th:href="'/admin/user/' + ${user.id} + '/edit'">Редактировать</a>
             </div>
 
             <div class="col-md-3">
-                <form th:method="delete" th:action="'/admin/vacancies/' + ${user.id}">
+                <form th:method="delete" th:action="'/admin/user/' + ${user.id}">
                     <input type="submit" value="Удалить">
                 </form>
 
@@ -29,5 +29,5 @@
 
 
     </div>
-    <a th:href="@{/admin/vacancies/new}">Создать нового пользователя</a>
+    <a th:href="@{/admin/user/new}">Создать нового пользователя</a>
 </div>

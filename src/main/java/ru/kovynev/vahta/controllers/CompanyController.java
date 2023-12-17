@@ -4,9 +4,7 @@ package ru.kovynev.vahta.controllers;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.hibernate.query.spi.Limit;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +13,6 @@ import ru.kovynev.vahta.entity.Review;
 import ru.kovynev.vahta.rep.CompanyRepository;
 import ru.kovynev.vahta.rep.ReviewRepository;
 
-import java.awt.print.Pageable;
 import java.util.List;
 
 
@@ -49,7 +46,9 @@ public class CompanyController {
     @GetMapping("")
     public String showAll(Model model) {
         logger.info("Show all companies");
-        Iterable<Company> companies = companyRepository.findAll();
+        //Iterable<Company> companies = companyRepository.findAll();
+        Iterable<Company> companies = companyRepository.findAllByOrderByIdDesc();
+
         model.addAttribute("companies", companies);
         return "companies/all_companies";
     }

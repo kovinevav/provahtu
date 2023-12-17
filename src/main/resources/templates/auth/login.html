@@ -33,14 +33,18 @@
 
     <!-- Custom styles for this template -->
    <!-- <link href="/css/singin.css" rel="stylesheet">-->
+    <link href="/css/singin.css" rel="stylesheet">
+
 </head>
 <body class="text-center">
+
+
 <form   name="f" class="form-signin" method="post" th:action="@{/auth/login}"  th:object="${loginDto}" >
    <!-- <img class="mb-4" src="/img/brand/bootstrap-solid.svg" alt="логотип bootstrap" width="72" height="72">-->
     <h1 class="h3 mb-3 font-weight-normal">Пожалуйста войдите</h1>
 
     <label for="login" class="sr-only">Login</label>
-    <input type="text"   th:field="*{username}" id="login" class="form-control" placeholder="login" required="" autofocus="">
+    <input type="text"   th:field="*{username}" id="login" class="form-control" placeholder="E-mail" required="" autofocus="">
 
     <label for="inputPassword" class="sr-only">Password</label>
     <input type="password"  th:field="*{password}" id="inputPassword" class="form-control" placeholder="Password" required="">
@@ -50,7 +54,7 @@
     <a href="/auth/register">Создать учётную запись</a>
 
     <div class="container">
-        <input type="submit" value="Login" class="btn btn-success">
+        <input type="submit" value="Войти" class="btn btn-success">
     </div>
 
 </form>

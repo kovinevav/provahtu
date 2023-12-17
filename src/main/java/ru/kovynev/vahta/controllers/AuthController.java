@@ -1,5 +1,7 @@
 package ru.kovynev.vahta.controllers;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -25,6 +27,7 @@ public class AuthController {
     private UserRepository userRepository;
     private RoleRepository roleRepository;
     private PasswordEncoder passwordEncoder;
+    Logger log = LogManager.getLogger();
 
     @Autowired
     public AuthController(AuthenticationManager authenticationManager, UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
@@ -58,15 +61,17 @@ public class AuthController {
         if (userRepository.existsByUsername(registerDto.getUsername())) {
             return "auth/login";
         }
+        log.info("@PostMapping /register");
+
         UserEntity user = new UserEntity();
         user.setUsername(registerDto.getUsername());
         user.setPassword(passwordEncoder.encode(registerDto.getPassword()));
 
-        Role roles = roleRepository.findByName("USER").get();
+        Role roles = roleRepository.findByName("ROLE_USER").get();
         user.setRoles(Collections.singletonList(roles));
         userRepository.save(user);
 
-        return "redirect: /personalpage";
+        return "redirect:/";
     }
 
     @GetMapping("/register")
